@@ -39,13 +39,14 @@ class EmailResource(object):
         msg = email_req['msg']
         server.sendmail(os.getenv('GMAIL_USERNAME', 'node2test@gmail.com'), email_req['to'], msg)
         server.quit()
-
-        connection = pymysql.connect(host='mysql:3306',
+        print("Before connect")
+        connection = pymysql.connect(host='mysql.msinfra.svc',
                              user='app_user',
                              password='password',
                              db='microservices',
                              charset='utf8mb4',
                              cursorclass=pymysql.cursors.DictCursor)
+        print("After connect")
         try:
             with connection.cursor() as cursor:
                 add_email = ("INSERT INTO emails "
