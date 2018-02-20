@@ -43,6 +43,7 @@ class EmailResource(object):
           'user': os.getenv('MYSQL_USER', 'root'),
           'password': os.getenv('MYSQL_PASSWORD', ''),
           'host': os.getenv('MYSQL_SERVICE_HOST', 'localhost'),
+          'port': os.getenv('MYSQL_SERVICE_PORT', '3306');
           'db': os.getenv('MYSQL_DATABASE', 'microservices'),
           'cursorclass': pymysql.cursors.DictCursor,
         }
