@@ -61,6 +61,5 @@ class EmailResource(object):
         finally:
             connection.close()
         resp.body = json.dumps(email_req)
-
 api = falcon.API()
 api.add_route('/email', EmailResource())
